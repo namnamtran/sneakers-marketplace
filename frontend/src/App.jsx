@@ -1,5 +1,6 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Button } from "./components/ui/button"
-
+import {LoginPage,SignupPage } from "./Routes.jsx"
 
 function App() {
 
@@ -7,11 +8,12 @@ function App() {
   return (
    <>
     {/* <Button>Hello ShadeCN</Button> */}
-    <div class="flex justify-between ...">
-  <div>01</div>
-  <div>02</div>
-  <div>03</div>
-</div>
+   <BrowserRouter>
+    <Routes>
+      <Route path='/login' element={<LoginPage/>} />
+      <Route path='/Sign-up' element={<SignupPage/>} />
+    </Routes>
+   </BrowserRouter>
    </>
   )
 }
