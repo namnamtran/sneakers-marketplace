@@ -3,9 +3,10 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import { server } from 'server';
+import { server } from "../../../server";
+
 
 
 const Signup = () => {
@@ -14,6 +15,7 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
@@ -27,7 +29,10 @@ const Signup = () => {
     
         axios.post(`${server}/user/create-user`, newForm, config)
             .then((res) => {
-                console.log(res)
+                // if(res.data.success === true) {
+                //     navigate("/")
+                // }
+                alert(res.message);
             })
             .catch((err) => {
                 console.log(err);

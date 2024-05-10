@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Button } from "./components/ui/button"
-import {LoginPage,SignupPage } from "./Routes.jsx"
+import {LoginPage,SignupPage, ActivationPage } from "./Routes.jsx"
 
 function App() {
 
@@ -11,7 +11,8 @@ function App() {
    <BrowserRouter>
     <Routes>
       <Route path='/login' element={<LoginPage/>} />
-      <Route path='/Sign-up' element={<SignupPage/>} />
+      <Route path='/sign-up' element={<SignupPage/>} />
+      <Route path='/activation/:url' element={<ActivationPage/>} />
     </Routes>
    </BrowserRouter>
    </>
